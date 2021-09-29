@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Count day</title>
+
+    <style>
+      .area {
+        width: 20%;
+        height: fit-content;
+        padding: 1rem 2rem;
+        border: 1px solid #15232d;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      p {
+        margin: 0;
+        padding: 0;
+      }
+
+      p.count-day::before {
+        content: "Days: ";
+        font-style: italic;
+        font-weight: 700;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="area">
+      <p>Mouse</p>
+      <p class="day-start">2021-09-27</p>
+      <p class="count-day"></p>
+    </section>
+
+    <script>
+      let $ = document.querySelector.bind(document);
+      let $$ = document.querySelectorAll.bind(document);
+
+      $$(".area").forEach((cell) => {
+        let dayStart = cell.querySelector(".day-start").innerHTML;
+        dayStart = new Date(dayStart);
+
+        let count = (new Date() - dayStart) / (3600 * 24 * 1000); // 1000 milisecond
+        // console.log((count - dayStart) / (3600 * 24 * 1000));
+
+        cell.querySelector(".count-day").innerHTML = Math.round(count);
+      });
+    </script>
+  </body>
+</html>
