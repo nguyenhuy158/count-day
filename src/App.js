@@ -1,6 +1,7 @@
 import "./app.scss";
-import cards from "./data/cards";
+
 import Card from "./components/Card";
+import cards from "./data/cards";
 
 function App() {
   // console.log(cards);
@@ -15,7 +16,8 @@ function App() {
       let dayStart = cell.querySelector(".day-start").innerHTML;
       dayStart = new Date(dayStart);
 
-      let count = (new Date() - dayStart) / (3600 * 24 * 1000); // 1000 milisecond
+      let count =
+          (new Date() - dayStart) / (3600 * 24 * 1000); // 1000 milisecond
       // console.log((count - dayStart) / (3600 * 24 * 1000));
 
       cell.querySelector(".count-day").innerHTML = Math.round(count);
@@ -25,8 +27,10 @@ function App() {
   return (
     <div className="main" onMouseEnter={handle}>
       {cards.map(({ name, day }, index) => (
-        <Card name={name} day={day} key={index} />
+        <Card name={name} day={day} key={
+      index} />
       ))}
+      
     </div>
   );
 }

@@ -15,14 +15,26 @@ body {
     padding: 1rem;
     gap: 1rem;
     flex-wrap: wrap;
+
     .area {
         padding: 1rem 1.5rem;
-        border: 1px solid #fff;
+        border: 1px solid #ff55ff;
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
         flex: 1;
+        border-radius: 10px;
+
+        position: relative;
+
+        &::after {
+            content: '';
+            inset: 0;
+            position: absolute;
+            background-color: currentColor;
+            opacity: 0.2;
+        }
     }
 
     p {
